@@ -34,3 +34,6 @@ Endpoints
 1.	Start the server using go run main.go.
 2.	Open your browser or use a tool like Postman to visit http://localhost:8080/current-Time.
 
+## Steps
+Firstly, I installed the MySql on machine and create a database and a table named time_log with at least two fields: id(primary key) and timestamp.
+![image](https://github.com/user-attachments/assets/7de1d4c7-0799-48a1-9e01-5ace3944635e)
