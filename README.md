@@ -35,5 +35,15 @@ Endpoints
 2.	Open your browser or use a tool like Postman to visit http://localhost:8080/current-Time.
 
 ## Steps
-Firstly, I installed the MySql on machine and create a database and a table named time_log with at least two fields: id(primary key) and timestamp.
+1. Firstly, I installed the MySql on machine and create a database and a table named time_log with at least two fields: id(primary key) and timestamp.
 ![image](https://github.com/user-attachments/assets/7de1d4c7-0799-48a1-9e01-5ace3944635e)
+
+2. On each API call, we get current time into the time_log table.
+![image](https://github.com/user-attachments/assets/38183a01-5b10-4dd7-833f-c192f388d2cd)
+
+3. then we run main.go and we get our results.
+![image](https://github.com/user-attachments/assets/4e03fa73-690a-45b3-bde4-23bd1edffe72)
+
+4. Open the browser and visit http://localhost:8080/current-time.
+![image](https://github.com/user-attachments/assets/711cfdf3-1767-4de1-9570-941554b1cac6)
+
