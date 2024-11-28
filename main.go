@@ -12,10 +12,8 @@ import (
 
 var db *sql.DB
 
-// Initialize the database connection
 func init() {
 	var err error
-	// Update with your MySQL credentials
 	dsn := "root:root@tcp(127.0.0.1:3306)/toronto_time"
 	db, err = sql.Open("mysql", dsn)
 	if err != nil {
@@ -23,7 +21,7 @@ func init() {
 	}
 }
 
-// Get the current time in Toronto
+
 func getTorontoTime() (time.Time, error) {
 	location, err := time.LoadLocation("America/Toronto")
 	if err != nil {
@@ -32,7 +30,6 @@ func getTorontoTime() (time.Time, error) {
 	return time.Now().In(location), nil
 }
 
-// Log the time to the MySQL database
 func logTimeToDatabase(t time.Time) {
 	query := "INSERT INTO time_log (timestamp) VALUES (?)"
 	_, err := db.Exec(query, t)
@@ -41,7 +38,6 @@ func logTimeToDatabase(t time.Time) {
 	}
 }
 
-// Handle the /current-time API request
 func handleCurrentTime(w http.ResponseWriter, r *http.Request) {
 	torontoTime, err := getTorontoTime()
 	if err != nil {
@@ -49,7 +45,6 @@ func handleCurrentTime(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Return the current time in JSON format
 	response := map[string]string{
 		"current_time": torontoTime.Format("2006-01-02 15:04:05"),
 	}
@@ -57,7 +52,6 @@ func handleCurrentTime(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 
-	// Log the time to MySQL
 	logTimeToDatabase(torontoTime)
 }
 
